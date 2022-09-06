@@ -1,14 +1,9 @@
-import Button from "react-bootstrap/Button";
-import Card from "react-bootstrap/Card";
-import "bootstrap/dist/css/bootstrap.min.css";
+import React from "react";
+import "./fonts/BOOTLE.ttf";
+import "./App.css";
 
 function App() {
-  return (
-    <div className="App">
-      <Card>Test</Card>
-      <Button>Test</Button>
-    </div>
-  );
+  return <div className="App">Torino</div>;
 }
 
 export default App;
