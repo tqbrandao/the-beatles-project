@@ -1,0 +1,35 @@
+.btn {
+  background-color: #000;
+  /* background-color: #ffff99;
+  background-image: radial-gradient(
+      at 6% 67%,
+      hsla(236, 73%, 72%, 1) 0px,
+      transparent 50%
+    ),
+    radial-gradient(at 51% 73%, hsla(156, 72%, 73%, 1) 0px, transparent 50%),
+    radial-gradient(at 77% 34%, hsla(266, 79%, 73%, 1) 0px, transparent 50%),
+    radial-gradient(at 9% 62%, hsla(5, 69%, 78%, 1) 0px, transparent 50%),
+    radial-gradient(at 58% 44%, hsla(132, 86%, 65%, 1) 0px, transparent 50%),
+    radial-gradient(at 63% 70%, hsla(111, 77%, 68%, 1) 0px, transparent 50%),
+    radial-gradient(at 75% 93%, hsla(14, 81%, 63%, 1) 0px, transparent 50%); */
+  border-radius: 10rem;
+  border: none;
+  text-transform: uppercase;
+  color: #fff;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  transition: all 0.2s;
+  padding: 1.5rem 4rem;
+  font-size: 1.5rem;
+  font-weight: 600;
+  font-family: inherit;
+}
+
+.btn:hover {
+  transform: scale(1.05);
+}
+
+.btn:focus {
+  outline: none;
+}
