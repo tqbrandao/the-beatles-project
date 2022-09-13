@@ -1,11 +1,18 @@
+.search-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-right: 5rem;
+}
+
 .search {
   background-color: #fff;
   border-radius: 10rem;
   display: flex;
   align-items: center;
+  justify-content: center;
   padding-left: 3rem;
   transition: all 0.3s;
-  margin-right: 10rem;
 }
 
 .search:focus-within {
@@ -28,4 +35,12 @@
 
 .search-field::placeholder {
   color: #d3c7c3;
+}
+
+.search-icons {
+  margin-right: 1.5rem;
+}
+
+.btn-random {
+  margin-left: 3rem;
 }
