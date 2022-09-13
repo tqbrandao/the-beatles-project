@@ -1,8 +1,15 @@
-import React from "react";
+import React, { useState } from "react";
 import classes from "./Header.module.css";
 import Search from "./Search";
 
-const Header = () => {
+const Header = (props) => {
+  const [enteredInput, setEnteredInput] = useState("");
+
+  const onSearchHandler = (inputData) => {
+    const searchData = inputData;
+    console.log(`ON HEADER ${searchData}`);
+  };
+
   return (
     <div className={classes.header}>
       <div className={classes.logo}>
@@ -10,7 +17,7 @@ const Header = () => {
           The Beatles <br></br> Archive
         </h1>
       </div>
-      <Search></Search>
+      <Search onSearch={onSearchHandler}></Search>
     </div>
   );
 };
