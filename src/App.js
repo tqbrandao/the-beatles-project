@@ -7,6 +7,7 @@ import ItemDetails from "./components/results/ItemDetails";
 
 function App() {
   const [apiData, setApiData] = useState([]);
+  const [queryData, setQueryData] = useState("");
 
   useEffect(() => {
     fetch("https://the-beatles-api.herokuapp.com/api/v1/albums")
@@ -14,12 +15,20 @@ function App() {
       .then((data) => setApiData(data));
   }, []);
 
-  console.log(apiData);
+  const searchDataHandler = (searchInput) => {
+    console.log(`In APP! ${searchInput}`);
+    setQueryData(searchInput);
+    // console.log(searchInput);
+  };
+
+  const filteredData = apiData.filter((el) => el.albumName.includes(queryData));
+
+  console.log(filteredData);
 
   return (
     <div className="container">
-      <Header></Header>
-      <SearchResults />
+      <Header onSearchData={searchDataHandler}></Header>
+      <SearchResults filteredData={filteredData} />
       <ItemDetails />
     </div>
   );

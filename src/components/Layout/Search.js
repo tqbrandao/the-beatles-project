@@ -9,12 +9,14 @@ const Search = (props) => {
 
   const inputChangeHandler = (e) => {
     setEnteredInput(e.target.value);
-    console.log(enteredInput);
+    // console.log(enteredInput);
   };
 
-  const searchHandler = (props) => {
-    props.onSearch(enteredInput);
-    console.log(enteredInput);
+  const searchHandler = (e) => {
+    e.preventDefault();
+    const searchInput = enteredInput;
+    props.onSearch(searchInput);
+    // console.log(searchInput);
   };
 
   return (
@@ -27,12 +29,8 @@ const Search = (props) => {
           onChange={inputChangeHandler}
           value={enteredInput}
         ></input>
-        <Button>
-          <BsSearch
-            className={classes["search-icons"]}
-            onClick={searchHandler}
-          />{" "}
-          Search
+        <Button onClick={searchHandler}>
+          <BsSearch className={classes["search-icons"]} /> Search
         </Button>
       </form>
       <Button className={classes["btn-random"]}>

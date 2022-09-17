@@ -1,13 +1,12 @@
-import React, { useState } from "react";
+import React from "react";
 import classes from "./Header.module.css";
 import Search from "./Search";
 
 const Header = (props) => {
-  const [enteredInput, setEnteredInput] = useState("");
-
   const onSearchHandler = (inputData) => {
     const searchData = inputData;
-    console.log(`ON HEADER ${searchData}`);
+    // console.log(`ON HEADER ${searchData}`);
+    props.onSearchData(searchData);
   };
 
   return (
