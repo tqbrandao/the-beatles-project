@@ -21,7 +21,9 @@ function App() {
     // console.log(searchInput);
   };
 
-  const filteredData = apiData.filter((el) => el.albumName.includes(queryData));
+  const filteredData = apiData.filter((el) =>
+    el.albumName.toLowerCase().includes(queryData.toLowerCase())
+  );
 
   console.log(filteredData);
 

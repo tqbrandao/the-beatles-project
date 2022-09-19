@@ -3,20 +3,22 @@ import ItemPreview from "./ItemPreview";
 import classes from "./SearchResults.module.css";
 
 const SearchResults = (props) => {
-  // const [searchResultsData, setSearchResultsData] = useState([])
-
-  // const resultListHandler = (result) => {
-  //   setResultList((prevResults) => [...prevResults, result]);
-  // };
-
   const resultList = props.filteredData;
-  console.log(`In SearchResults ${resultList}`);
 
   return (
     <div className={classes["search-results"]}>
-      <ul className={classes.results}>
-        <ItemPreview />
-      </ul>
+      {resultList.length < 30 && (
+        <ul className={classes.results}>
+          {resultList.map((item) => (
+            <ItemPreview
+              key={item.id}
+              name={item.albumName}
+              genre={item.genre}
+              date={item.releaseDate.slice()}
+            />
+          ))}
+        </ul>
+      )}
     </div>
   );
 };
