@@ -8,6 +8,7 @@ import ItemDetails from "./components/results/ItemDetails";
 function App() {
   const [apiData, setApiData] = useState([]);
   const [queryData, setQueryData] = useState("");
+  const [selectedData, setSelectedData] = useState(null);
 
   useEffect(() => {
     fetch("https://the-beatles-api.herokuapp.com/api/v1/albums")
@@ -26,13 +27,10 @@ function App() {
     el.albumName.toLowerCase().includes(queryData.toLowerCase())
   );
 
-  let currentItem = {};
-
   const itemSelectionHandler = (item) => {
-    currentItem = item;
+    setSelectedData(item);
+    console.log(selectedData);
   };
-
-  console.log(currentItem);
 
   return (
     <div className="container">
@@ -41,7 +39,7 @@ function App() {
         filteredData={filteredData}
         onItemSelection={itemSelectionHandler}
       />
-      <ItemDetails currentItem={currentItem} />
+      <ItemDetails selectedData={selectedData} />
     </div>
   );
 }

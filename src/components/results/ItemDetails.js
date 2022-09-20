@@ -4,11 +4,11 @@ import { BsCalendar2Fill } from "react-icons/bs";
 import { BsMusicNoteBeamed } from "react-icons/bs";
 
 const ItemDetails = (props) => {
-  console.log(props.currentItem.name);
+  const displayData = props.selectedData;
   return (
     <div className={classes["details-container"]}>
       <div className={classes.card}>
-        <h1>{props.currentItem.name}</h1>
+        <h1>{displayData.name}</h1>
         <p>
           Abbey Road is the 11th studio album released by the English rock band
           the Beatles. It is the last album the group started recording,
