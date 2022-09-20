@@ -1,13 +1,31 @@
-import React from "react";
+import React, { useState } from "react";
 import classes from "./ItemPreview.module.css";
+// import IMAGES from "../../data/images.js";
 
 const ItemPreview = (props) => {
-  console.log(props.key);
+  const [clickedItem, setClickedItem] = useState({});
+  const itemSelectHandler = (e) => {
+    e.preventDefault();
+    setClickedItem({
+      id: props.itemId,
+      name: props.name,
+      releaseDate: new Date(props.date).getFullYear(),
+      genre: props.genre,
+    });
+  };
+
+  console.log(clickedItem);
+
+  props.onSelectItem(clickedItem);
+
   return (
-    <li className={classes.preview}>
-      <a className={classes["preview__link"]} href="1">
+    <li onClick={itemSelectHandler} className={classes.preview}>
+      <a className={classes["preview__link"]} href="#">
         <figure className={classes["preview__fig"]}>
-          <img src={props.img} alt="The Beatles Album"></img>
+          <img
+            src={require(`../../assets/img${props.imageSource}.jpg`)}
+            alt="The Beatles Album"
+          ></img>
         </figure>
         <div className={classes["preview__data"]}>
           <h4 className={classes["preview__title"]}>{props.name}</h4>

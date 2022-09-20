@@ -16,22 +16,32 @@ function App() {
   }, []);
 
   const searchDataHandler = (searchInput) => {
-    console.log(`In APP! ${searchInput}`);
     setQueryData(searchInput);
     // console.log(searchInput);
   };
+
+  apiData.splice(38, 4);
 
   const filteredData = apiData.filter((el) =>
     el.albumName.toLowerCase().includes(queryData.toLowerCase())
   );
 
-  console.log(filteredData);
+  let currentItem = {};
+
+  const itemSelectionHandler = (item) => {
+    currentItem = item;
+  };
+
+  console.log(currentItem);
 
   return (
     <div className="container">
       <Header onSearchData={searchDataHandler}></Header>
-      <SearchResults filteredData={filteredData} />
-      <ItemDetails />
+      <SearchResults
+        filteredData={filteredData}
+        onItemSelection={itemSelectionHandler}
+      />
+      <ItemDetails currentItem={currentItem} />
     </div>
   );
 }
